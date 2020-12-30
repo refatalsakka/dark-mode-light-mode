@@ -1,0 +1,98 @@
+@import './layout/variables';
+@import './mixin/keyframes';
+
+.mode-no-transition {
+  transition: none !important;
+}
+
+.mode-button {
+  border-radius: 50%;
+  bottom: $btn-bottom;
+  cursor: pointer;
+  height: $btn-height;
+  position: absolute;
+  right: $btn-right;
+  user-select: none;
+  width: $btn-width;
+  z-index: 1000;
+
+  &:hover {
+    height: $btn-height + 5px;
+    transition: all 0.1s ease-out;
+    width: $btn-width + 5px;
+  }
+
+  &.mode-animation {
+    animation: mode 1s ease-in-out infinite;
+  }
+
+  &.flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+  }
+
+  &.flip-card .flip-card-inner {
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    width: 100%;
+  }
+
+  &.flip-card .flip-card-front,
+  &.flip-card .flip-card-back {
+    align-items: center;
+    backface-visibility: hidden;
+    box-shadow: 0 0 4px #2980b9;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+  }
+
+  &.flip-card .flip-card-front {
+    background-color: $btn-light-bg-color;
+    border-radius: 50%;
+  }
+
+  &.flip-card .flip-card-back {
+    background-color: $btn-dark-bg-color;
+    border-radius: 50%;
+    transform: rotateY(180deg);
+  }
+}
+
+.mode-layer {
+  background-color: $dark-mode-bg-color;
+  border-radius: 50%;
+  bottom: $layer-bottom;
+  height: $layer-height;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  position: fixed;
+  right: $layer-right;
+  transform: scale(0);
+  transition: all $transition-scale-time linear;
+  width: $layer-width;
+
+  &.mode-scale {
+    transform: scale(2);
+  }
+
+  &.mode-transition {
+    transition: all $transition-width-time linear;
+  }
+
+  &.mode-resize {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.dark-mode {
+  .flip-card .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
