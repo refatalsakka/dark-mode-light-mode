@@ -21,7 +21,7 @@ First add the HTML elements
 </div>
 ```
 
-than add the JavaScript after
+then add the JavaScript after
 ```html
 <script src="./dark-mode-light-mode.js"></script>
 ```
