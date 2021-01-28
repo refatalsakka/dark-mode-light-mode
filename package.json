@@ -1,6 +1,6 @@
 {
   "name": "dark-mode-light-mode",
-  "version": "1.2.8",
+  "version": "1.3.0",
   "description": "Toggle between Dark 🌙 and Light 🔆 Mode",
   "scripts": {
     "server": "live-server",
