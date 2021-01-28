@@ -1,9 +1,11 @@
+import Cookies from 'js-cookie';
+
 import elms from '../helpers/elements';
-import { transitionend } from '../helpers/functions';
+import { transitionend, hasBodyDarkMode } from '../helpers/functions';
 
 export default class ModeController {
   constructor(mode) {
-    this.mode = mode;
+    this.mode = mode || ModeController.getCurrentMode();
     this.steps = [
       'mode-scale',
       'mode-transition',
@@ -13,13 +15,15 @@ export default class ModeController {
     if (this.mode === 'dark') this.steps.reverse();
   }
 
-  set() {
+  run() {
     if (this.mode === 'dark') return this.addClasses();
-
     this.removeClasses();
   }
 
   toggle(callback) {
+    ModeController.setCookie();
+
+    elms.body.classList.toggle('dark-mode');
     elms.layer.classList.toggle(this.steps[0]);
 
     transitionend(elms.layer, () => {
@@ -33,10 +37,22 @@ export default class ModeController {
   }
 
   addClasses() {
-    elms.layer.classList.add('mode-no-transition', ...this.steps);
+    elms.body.classList.add('dark-mode');
+    elms.layer.classList.add(...this.steps);
   }
 
   removeClasses() {
+    elms.body.classList.remove('dark-mode');
     elms.layer.classList.remove(...this.steps);
+  }
+
+  static setCookie() {
+    if (!Cookies.get('mode')) return Cookies.set('mode', true);
+    Cookies.remove('mode');
+  }
+
+  static getCurrentMode() {
+    if (hasBodyDarkMode(elms.body)) return 'dark';
+    return Cookies.get('mode') ? 'dark' : '';
   }
 }

@@ -1,8 +1,11 @@
 @import './layout/variables';
 @import './mixin/keyframes';
 
-.mode-no-transition {
-  transition: none !important;
+.no-transition {
+  .mode-layer,
+  .mode-button .flip-card-inner {
+    transition: none !important;
+  }
 }
 
 .mode-button {
@@ -39,6 +42,10 @@
     width: 100%;
   }
 
+  &.no-transition.flip-card .flip-card-inner {
+    transition: none !important;
+  }
+
   &.flip-card .flip-card-front,
   &.flip-card .flip-card-back {
     align-items: center;
@@ -60,6 +67,10 @@
     background-color: $btn-dark-bg-color;
     border-radius: 50%;
     transform: rotateY(180deg);
+  }
+
+  &.disable {
+    pointer-events: none;
   }
 }
 

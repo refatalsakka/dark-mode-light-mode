@@ -1,24 +1,21 @@
 import '../sass/style.scss';
 
-import Cookies from 'js-cookie';
-
 import elms from './helpers/elements';
-import { getCurrentMode } from './helpers/functions';
 import ModeController from './controllers/ModeController';
 
-const mode = getCurrentMode(elms.body, Cookies);
-const modeController = new ModeController(mode);
-
-modeController.set();
+const modeController = new ModeController();
 
 elms.btn.addEventListener('click', () => {
-  elms.body.classList.toggle('dark-mode');
+  elms.body.classList.remove('no-transition');
   elms.btn.classList.add('disable');
-  elms.layer.classList.remove('mode-no-transition');
 
   modeController.toggle(() => {
     elms.btn.classList.remove('disable');
-    if (!Cookies.get('mode')) return Cookies.set('mode', true);
-    Cookies.remove('mode');
   });
 });
+
+function run() {
+  elms.body.classList.add('no-transition');
+  modeController.run();
+}
+run();
