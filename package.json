@@ -43,7 +43,9 @@
   "author": "Refat Alsakka",
   "license": "ISC",
   "main": "dark-mode-light-mode.js",
-  "dependencies": {},
+  "dependencies": {
+    "js-cookie": "^2.2.1"
+  },
   "devDependencies": {
     "style-loader": "^2.0.0",
     "@babel/core": "^7.12.9",

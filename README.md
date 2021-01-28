@@ -26,4 +26,8 @@ then add the JavaScript after
 <script src="./dark-mode-light-mode.js"></script>
 ```
 
+## Features
+    - It appears with a nice animation
+    - User choice will be saved
+
 ![](https://raw.githubusercontent.com/refatalsakka/dark-mode-light-mode/master/dark-mode-light-mode.gif)
