@@ -23,7 +23,7 @@ HTML
 
 Script
 ```html
-<script src=".node_modules/dark-mode-light-mode/index.js"></script>
+<script src="./node_modules/dark-mode-light-mode/index.js"></script>
 ```
 
 ## Features
