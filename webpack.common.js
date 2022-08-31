@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/js/app.js',
   output: {
     path: path.resolve(__dirname),
-    filename: 'dark-mode-light-mode.js',
+    filename: 'index.js',
     environment: {
       arrowFunction: false,
       const: false,

@@ -9,7 +9,7 @@
 npm i dark-mode-light-mode
 ```
 ## Usage
-First add the HTML elements
+HTML
 
 ```html
 <div class="mode-layer"></div>
@@ -21,9 +21,9 @@ First add the HTML elements
 </div>
 ```
 
-then add the JavaScript after
+Script
 ```html
-<script src="./dark-mode-light-mode.js"></script>
+<script src=".node_modules/dark-mode-light-mode/index.js"></script>
 ```
 
 ## Features
